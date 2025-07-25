@@ -29,7 +29,4 @@ def get_seoul_weather():
     return original_data
     
 
-    # key 값만 리스트에 담기
-    
-
 pprint(get_seoul_weather())
