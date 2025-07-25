@@ -6,10 +6,10 @@ import requests
 
 # 날씨 데이터 변수에 할당
 weather_data = {}
-dummy_data = {}
+original_data = {}
 def get_seoul_weather():
     global weather_data
-    global dummy_data
+    global original_data
     # OpenWeatherMap API 키
     API_key = 'e1f011915a9b1500a0292c1d8e310cfe'
 
@@ -23,12 +23,13 @@ def get_seoul_weather():
 
     # API 요청 보내기
     weather_data = requests.get(url).json()
+
+    # main 키와 weather 키의 값만 추출하여 새로운 딕셔너리 생성
+    original_data = {'main': weather_data['main'], 'weather': weather_data['weather']}
+    return original_data
+    
+
     # key 값만 리스트에 담기
-    dummy_data = weather_data.keys()
-    return dummy_data
+    
 
-print(get_seoul_weather())
-
-# main 키와 weather 키의 값만 추출하여 새로운 딕셔너리 생성
-original_data = {'main': weather_data['main'], 'weather': weather_data['weather']}
-pprint(original_data)
+pprint(get_seoul_weather())
