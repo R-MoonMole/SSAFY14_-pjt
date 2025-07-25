@@ -25,7 +25,7 @@ def get_seoul_weather():
 weather_data = get_seoul_weather()
 
 # 날씨 데이터 key 값만 리스트에 담기
-dummy_data = list(weather_data.keys())
+dummy_data = weather_data.keys()
 print(dummy_data)
 
 # main 키와 weather 키의 값만 추출하여 새로운 딕셔너리 생성
