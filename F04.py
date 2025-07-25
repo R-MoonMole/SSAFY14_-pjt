@@ -52,8 +52,10 @@ def translate_data():
 translate_data()
 
 # 한글로 변환된 데이터에 섭씨 온도 데이터를 추가
-translated_data['기본'].update({'온도(섭씨)': round(((translated_data['기본']['온도'] - 32) * 5 / 9), 2),
+def round_temp():
+    translated_data['기본'].update({'온도(섭씨)': round(((translated_data['기본']['온도'] - 32) * 5 / 9), 2),
                                 '체감온도(섭씨)': round(((translated_data['기본']['체감온도'] - 32) * 5 / 9), 2),
                                 '최고온도(섭씨)': round(((translated_data['기본']['최고온도'] - 32) * 5 / 9), 2),
                                 '최저온도(섭씨)': round(((translated_data['기본']['최저온도'] - 32) * 5 / 9), 2)})
+    return translated_data
 pprint(translated_data)
